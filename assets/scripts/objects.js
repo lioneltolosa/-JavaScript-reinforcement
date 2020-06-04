@@ -23,7 +23,7 @@ const renderMovies = (filter = '') => {
         // const {title} = info;
         let text = movie.getFormattedTitle() + ' - ';
         for(const key in info) {
-            if(key !== 'title') {
+            if(key !== 'title' && key !== '_title') {
                 text = text + `${key}: ${info[key]}`
             }
         }
@@ -61,7 +61,10 @@ const addMovieHandler = () => {
         getFormattedTitle() {
             return this.info.title.toUpperCase();
         }
-    }
+    };
+
+    newMovie.info.title = title;
+    console.log(newMovie.info.title);
 
     movies.push(newMovie);
     console.log(newMovie);
